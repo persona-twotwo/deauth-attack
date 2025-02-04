@@ -1,4 +1,4 @@
-# Deauth Attack
+# [Deauth Attack](https://gitlab.com/gilgil/sns/-/wikis/deauth-attack/report-deauth-attack)
 
 ## 과제
 Deauth Attack 프로그램을 작성하라.

@@ -4,23 +4,13 @@
 Deauth Attack 프로그램을 작성하라.
 
 ## 실행
+- ap channel과 wlan 장치의 channel을 일치시킨 후 작동시켜야 합니다.
 ```
 syntax : deauth-attack <interface> <ap mac> [<station mac> [-auth]]
 sample : deauth-attack mon0 00:11:22:33:44:55 66:77:88:99:AA:BB
 ```
+- 실행 영상: [youtube](https://youtu.be/P-RngH8Zh-Q)
 
-## 상세
-
-
-- aireplay-ng 명령어를 이용하여 AP broadcast, AP unicast, Station unicast 패킷을 잡아서 어떠한 형태로 deauth frame이 발생하는지 파악한다.
-  ```bash
-  aireplay-ng <interface> -a <ap mac> [-c <station mac>]
-  ```
-- <ap mac>만 명시되는 경우에는 AP broadcast frame을 발생시킨다.
-- <station mac>까지 명시되는 경우에는 AP unicast, Station unicast frame을 발생시킨다.
-- -auth 옵션이 주어지면 deauthentication이 아닌 authentication으로 공격한다(authentication frame 정보는 실제 일반 Station의 연결 과정에서 획득할 수 있다).
-- 너무 많은 패킷을 발생시키면 무선 네트워크 사용에 지장을 줄 수 있으므로 적당히 sleep을 넣어 준다.
-
-## 기타
-- git에는 소스 코드(h, c, cpp)만 올리지 말고 프로젝트 파일(Makefile 혹은 *.pro)도 같이 올릴 것.
-- 메일에는 코드 파일을 첨부하지 말고 git 주소만 알려줄 것.
+## 후기
+- 제가 사용한 공유기에서 auth attack이 작동하지 않았습니다. auth attack을 시도할 경우 연결이 끊기는게 아닌 네트워크가 먹통이 됩니다. sleep을 주어 부하를 줄였음에도 해결되지 않아 auth 부분은 코드를 제출하지 않고 deauth 부분만 제출합니다.
+- channel을 자동으로 맞춰주려 하다가 생각보다 프로그램 규모가 커지는것 같아 채널부분은 제외하였습니다.
